@@ -6,6 +6,8 @@ namespace TallinRenter
 {
 	public partial class Form1 : Form
 	{
+		private const int Rent = 22000;
+
 		public Form1()
 		{
 			InitializeComponent();
@@ -17,10 +19,10 @@ namespace TallinRenter
 			var electricity = Parse(txtElectricity.Text);
 			var gas = Parse(txtGas.Text);
 
-			var total = kvarplata + electricity + gas;
+			var total = kvarplata + electricity + gas + Rent;
 
 			var month = DateTime.Now.AddMonths(-1).ToString("MMMM");
-			txtResult.Text = $@"Привет, расчет за {month} : аренда 22000 + кварплата {kvarplata} + электричество {electricity} + газ {gas} = {total}";
+			txtResult.Text = $@"Привет, расчет за {month} : аренда {Rent} + кварплата {kvarplata} + электричество {electricity} + газ {gas} = {total}";
 		}
 
 		private void btnCopy_Click(object sender, EventArgs e)
